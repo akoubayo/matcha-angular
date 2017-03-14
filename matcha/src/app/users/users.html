@@ -1,0 +1,64 @@
+<!-- <div class="container-fluid" style="padding-top: 100px;">
+    <div class="row gutters-10">
+        <div class="col col-lg" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+        <div class="col col-xs-12 col-lg-3 visitor" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+        <div class="col col-xs-12 col-lg-3 visitor" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+        <div class="col col-xs-12 col-lg-3 visitor" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+        <div class="col col-xs-12 col-lg-3 visitor" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+        <div class="col col-xs-12 col-lg-3 visitor" *ngFor="let usr of Users">
+            <div *ngIf="usr.photo[0]"><img  style=""  src="http://localhost:8000/{{usr.photo[0].small}}"/></div>
+            <div *ngIf="!usr.photo[0]"><img src="http://localhost:8000/{{Users[0].photo[0].small}}"/></div>
+            <div>{{usr.pseudo}}</div>
+            <div>{{usr.id_profils}}</div>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-lg-3" *ngFor="let usr of Users">
+            <div class="visitor"  >
+                <img src="http://localhost:8000/{{Users[0].photo[0].small}}" style="display:inline"/>
+                Card title
+                <div class="card-block">
+                  <p *ngIf="!usr.photo[0]" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3" *ngFor="let usr of Users">
+            <div class="visitor"  >
+                <img src="http://localhost:8000/{{Users[0].photo[0].small}}" style="display:inline"/>
+                Card title
+                <div class="card-block">
+                  <p *ngIf="!usr.photo[0]" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
