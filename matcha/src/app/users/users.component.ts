@@ -2,7 +2,7 @@ import { Component, OnInit }      from '@angular/core';
 import { HttpService }            from '../http/http.service';
 import { DomSanitizer }           from '@angular/platform-browser';
 import { User }                   from '../users/user';
-
+import {MdIconRegistry}           from '@angular/material';
 let Users: Array<User>;
 let titi: string = 'tutu';
 @Component({
@@ -19,7 +19,10 @@ export class UsersComponent implements OnInit {
   limit = 1;
   Users: Array<User>;
 
-  constructor(public https: HttpService, public san: DomSanitizer) {
+  constructor(iconRegistry: MdIconRegistry,sanitizer: DomSanitizer, public https: HttpService, public san: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+        'thumbs-up',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
   }
 
   ngOnInit(): void {

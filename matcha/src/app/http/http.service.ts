@@ -28,7 +28,7 @@ export class HttpService implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log('titi');
+    console.log(this.bearer);
   }
 
   public extractData(res: Response) {

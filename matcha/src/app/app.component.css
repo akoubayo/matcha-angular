@@ -1,0 +1,42 @@
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 10px;
+}
+
+#nav {
+    background-color: red;
+
+}
+
+md-sidenav {
+    width: 220px;
+    min-width: 50px !important;
+    height: 100% !important;
+    background-color: red;
+    color: white !important;
+}
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+ul .nav-item:first-child {
+    margin-left: 80px;
+}
+
+.nav-item .active {
+     color: white;
+}
