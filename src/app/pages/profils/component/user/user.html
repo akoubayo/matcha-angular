@@ -1,0 +1,35 @@
+<div class="row" style="margin-bottom: 15px;">
+    <div *ngIf="profil" class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+        <ba-card title="{{profil.pseudo}}" baCardClass="with-scroll">
+           <div *ngIf="profil.photo[0]" class="col-xlg-3 col-lg-3 col-md-3 col-sm-5 col-xs-12">
+               <img src="http://localhost:8000/{{profil.photo[0].small}}" />
+           </div>
+           <div class="col-xlg-3 col-lg-3 col-md-3 col-sm-7 col-xs-12">
+               <div>
+                   <p>Sexe  : {{profil.sexe}}</p>
+                   <p>Age   : {{profil.birthday}} ans</p>
+                   <p>Ville : {{profil.ville}}</p>
+                   <p>Yeux     : {{profil.yeux}}</p>
+                   <p>Cheveux  : {{profil.cheveux}}</p>
+                   <p>Taille  : {{profil.taille}}</p>
+                   <p>Poid  : {{profil.poid}} kg</p>
+                   <p>Orientation  : {{profil.orientation}}</p>
+
+                </div>
+           </div>
+           <div class="row">
+               <div class="col-xs-12">
+                   <h4 style="margin-top: 20px;"><u>Description :</u></h4>
+                   <span>{{profil.description}}</span>
+                   <h4 style="margin-top: 20px;"><u>List des tags :</u></h4>
+                    <span *ngFor="let tag of profil.tags">
+                        <button class="btn btn-info"  type="button">{{tag.name}}</button>
+                    </span>
+                </div>
+           </div>
+       </ba-card>
+    </div>
+</div>
+<div class="toto" *ngIf="profil">
+    <charCustom [profil]="profil" [chartTab]="chartTab"></charCustom>
+</div>

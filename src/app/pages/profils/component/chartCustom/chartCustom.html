@@ -1,0 +1,62 @@
+<div class="row pie-charts">
+<ba-card class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-xs-12"  *ngFor="let chart of chartTab" ng-init="loadPieCharts(chart.id)">
+    <div class="pie-chart-item">
+      <div class="chart" id="{{chart.id}}" [attr.data-rel]="pieColor" data-percent="0" >
+        <span class="percent"></span>
+      </div>
+      <div class="description">
+        <div [innerHTML]="chart.title"></div>
+        <div class="description-stats"></div>
+      </div>
+      <i class="chart-icon i-{{chart.icon}}"></i>
+    </div>
+</ba-card>
+  <!--    <ba-card class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+
+    <div class="pie-chart-item">
+      <div id="likeChart" class="chart" [attr.data-rel]="pieColor" data-percent="0">
+        <span class="percent"></span>
+      </div>
+      <div class="description">
+        <div>
+          Nombre de like
+          <p>{{profil.nbLikes}}</p>
+        </div>
+        <div class="description-stats" ></div>
+      </div>
+      <i class="chart-icon ion-pause" style="width: 80px"></i>
+    </div>
+
+  </ba-card>
+   <ba-card class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+    <div class="pie-chart-item">
+      <div class="chart" [attr.data-rel]="pieColor" data-percent="50">
+        <span class="percent"></span>
+      </div>
+      <div class="description">
+        <div>
+          Match
+          <p>50% de matche</p>
+        </div>
+        <div class="description-stats"></div>
+      </div>
+      <i class="chart-icon i-face"></i>
+    </div>
+  </ba-card>
+  <ba-card class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+    <div class="pie-chart-item">
+      <div id="nbShow" class="chart" [attr.data-rel]="pieColor" data-percent="0">
+        <span class="percent"></span>
+      </div>
+      <div class="description">
+        <div>
+          Vue
+          <p>50% des tops profils</p>
+        </div>
+        <div class="description-stats"></div>
+      </div>
+      <i class="chart-icon i-eye"></i>
+    </div>
+
+  </ba-card> -->
+</div>
