@@ -45,7 +45,6 @@ export class BaMenu {
     this._onRouteChange = this._router.events.subscribe((event) => {
 
       if (event instanceof NavigationEnd) {
-        console.log(this.menuItems);
         if (this.menuItems) {
           this.selectMenuAndNotify();
         } else {

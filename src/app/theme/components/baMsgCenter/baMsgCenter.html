@@ -1,7 +1,7 @@
 <ul class="al-msg-center clearfix">
   <li class="dropdown">
     <a href class="dropdown-toggle" id="msg-dd1" data-toggle="dropdown" aria-expanded="false">
-      <i class="fa fa-bell-o"></i><span>5</span>
+      <i class="fa fa-bell-o"></i><span>6</span>
 
       <div class="notification-ring"></div>
     </a>
@@ -15,12 +15,12 @@
         <a href>Settings</a>
       </div>
       <div class="msg-list">
-        <a *ngFor="let msg of notifications" href class="clearfix">
-          <div class="img-area"><img [ngClass]="{'photo-msg-item': !msg.image}"
-                                     src="{{ ( msg.image ||  (msg.name | baProfilePicture)) }}"></div>
+        <a *ngFor="let msg of notif" routerLink="/pages/profils/me" class="clearfix">
+          <div class="img-area"><!-- <img [ngClass]="{'photo-msg-item': !msg.image}"
+                                     src="{{ ( msg.image ||  (msg.name | baProfilePicture)) }}"> --></div>
           <div class="msg-area">
-            <div>{{ msg.text }}</div>
-            <span>{{ msg.time }}</span>
+            <div>{{ msg.notif }}</div>
+            <span>{{ msg.updated_at }}</span>
           </div>
         </a>
       </div>

@@ -27,6 +27,18 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: ['profils/me'],
+        data: {
+          menu: {
+            title:'Mon profil',
+            icon: 'ion-person',
+            selected:false,
+            expended: false,
+            order: 60,
+          }
+        }
+      },
+      {
         path: 'editors',
         data: {
           menu: {

@@ -5,7 +5,7 @@ import { NgaModule } from '../../theme/nga.module';
 
 import { Login } from './login.component';
 import { routing }       from './login.routing';
-
+import {HttpService}        from '../../theme/services/httpService/httpService.service'
 
 @NgModule({
   imports: [
@@ -15,6 +15,7 @@ import { routing }       from './login.routing';
     NgaModule,
     routing
   ],
+  providers:[HttpService],
   declarations: [
     Login
   ]

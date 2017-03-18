@@ -1,6 +1,5 @@
 @import "../../../../theme/sass/conf/conf";
-
-
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 .descProfil {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -102,4 +101,29 @@ ba-card  img{
   .angular .chart {
     margin-top: 0;
   }
+}
+md-grid-tile img {
+
+}
+
+md-grid-tile-footer {
+  height: 20px !important;
+}
+
+md-grid-tile-footer h3 {
+    font-size: 13px !important;
+}
+
+.info .etiquette{
+  width: 30%;
+  display: inline-block;
+}
+.info .details{
+  width: 25%;
+  display: inline-block;
+}
+
+.info  i{
+
+  cursor: pointer;
 }

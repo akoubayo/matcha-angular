@@ -19,16 +19,13 @@ export class ChartCustomComponent implements OnInit{
     }
 
     ngAfterViewInit() {
-      console.log(this.profil)
       for(let chart of this.chartTab) {
-        console.log(chart);
         this.loadPieCharts(chart.id);
         this.updatePieCharts(chart);
       }
     }
 
     public loadPieCharts(id) {
-      console.log('=====================');
       let chart = jQuery('#' + id + '');
       chart.easyPieChart({
         easing: 'easeOutBounce',

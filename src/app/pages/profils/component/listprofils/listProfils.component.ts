@@ -16,7 +16,7 @@ export class ListProfilsComponent implements OnInit{
   limit = 1;
   public Profil: Array<Profil> = null;
 
-   constructor(public https: HttpService) { console.log('constructor');console.log(profil)}
+   constructor(public https: HttpService) {}
 
   ngOnInit(): void {
     if(!this.https.bearer) {
@@ -40,7 +40,6 @@ export class ListProfilsComponent implements OnInit{
                _users => {
                  profil = _users;
                  this.Profil = profil;
-                 console.log(this.Profil);
                });
         }
       } else {

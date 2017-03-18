@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core'
 
+let notif = [];
+
 @Injectable()
 export class BaMsgCenterService {
 
   private _notifications = [
     {
       name: 'Vlad',
-      text: 'Vlad posted a new article.',
+      text: 'Vlad posted a new article. zejkfhjkz ehzehjkfg zerfger zhjzer   er  rehjkrzg zrbzrrezrhjkhjr hdfksjhvdfjls',
       time: '1 min ago'
     },
     {
@@ -80,10 +82,15 @@ export class BaMsgCenterService {
   ];
 
   public getMessages():Array<Object> {
+    console.log('dans le service Message');
     return this._messages;
   }
 
   public getNotifications():Array<Object> {
     return this._notifications;
+  }
+
+  public AddNotifications(data):void {
+    notif.push(data);
   }
 }
