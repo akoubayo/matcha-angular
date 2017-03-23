@@ -36,17 +36,7 @@ export class UserComponent implements OnInit{
       this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
       });
-      if(!this.https.bearer) {
-            this.https.getBearer(null)
-                .subscribe(response => {
-          let resp = response.json();
-          this.https.bearer = resp.access_token;
-          this.https.headers.append('Authorization', 'Bearer ' + this.https.bearer);
-          this.getprofil();
-        });
-      } else {
-        this.getprofil();
-      }
+      this.getprofil();
     }
 
     getprofil(): void {

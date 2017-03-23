@@ -19,17 +19,18 @@ export class ListProfilsComponent implements OnInit{
    constructor(public https: HttpService) {}
 
   ngOnInit(): void {
-    if(!this.https.bearer) {
-          this.https.getBearer()
-              .subscribe(response => {
-        let resp = response.json();
-        this.https.bearer = resp.access_token;
-        this.https.headers.append('Authorization', 'Bearer ' + this.https.bearer);
-        this.getUsers();
-      });
-    } else {
-      this.getUsers();
-    }
+    // if(!this.https.bearer) {
+    //       this.https.getBearer({})
+    //           .subscribe(response => {
+    //     let resp = response.json();
+    //     this.https.bearer = resp.access_token;
+    //     this.https.headers.append('Authorization', 'Bearer ' + this.https.bearer);
+    //     this.getUsers();
+    //   });
+    // } else {
+    //   this.getUsers();
+    // }
+    this.getUsers();
   }
 
   public getUsers() {

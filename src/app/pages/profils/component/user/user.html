@@ -146,9 +146,12 @@
                                    [identifyBy]="'id'" [displayBy]="'name'"
                                    (onAdd)="addTags($event)"
                                    (onRemove)="deleteTags($event)"
-                                   (onBlur)="changeValue('tag')"
                                  theme='bootstrap'
-                      ></tag-input>
+
+                      >
+                        <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="['Item1', 'item2', 'item3']">
+       </tag-input-dropdown>
+                      </tag-input>
                    </span>
                     <span *ngFor="let tag of profil.tags">
                         <button class="btn btn-info"  type="button">{{tag.name}}</button>

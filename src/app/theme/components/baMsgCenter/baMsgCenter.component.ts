@@ -17,8 +17,13 @@ export class BaMsgCenter {
   constructor(private _baMsgCenterService:BaMsgCenterService, public https: HttpService) {
     this.messages = this._baMsgCenterService.getMessages();
     setInterval(() => {
-      this.https.getNotif().subscribe(response => {
+      this.https.getNotif().subscribe(
+        response => {
           this.notif = response;
+        },
+        error => {
+          console.log('error')
+          console.log(error)
         });
     }, 5000);
   }

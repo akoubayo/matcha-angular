@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {HttpService}        from '../../theme/services/httpService/httpService.service'
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import 'style-loader!./login.scss';
 
@@ -16,8 +17,7 @@ export class Login {
   public submitted:boolean = false;
   public https:HttpService;
 
-  constructor(fb:FormBuilder, https:HttpService) {
-    console.log('+++++++++++++++++++TOTO+++++++++++++++++');
+  constructor(fb:FormBuilder, https:HttpService, private router: Router) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -42,8 +42,7 @@ export class Login {
                            let resp = response.json();
                           this.https.bearer = resp.access_token;
                           this.https.headers.append('Authorization', 'Bearer ' + this.https.bearer);
-                          //this.getprofil();
-                          console.log(resp);
+                          this.router.navigate(['/pages/profils']);
                       });
     }
   }
