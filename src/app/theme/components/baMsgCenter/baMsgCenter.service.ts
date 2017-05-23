@@ -82,7 +82,6 @@ export class BaMsgCenterService {
   ];
 
   public getMessages():Array<Object> {
-    console.log('dans le service Message');
     return this._messages;
   }
 

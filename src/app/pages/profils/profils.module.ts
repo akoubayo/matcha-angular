@@ -31,7 +31,10 @@ import { ProfilsComponent }     from './profils.component';
 import { UserComponent }        from './component/user/user.component';
 import { ListProfilsComponent } from './component/listprofils/listProfils.component';
 import { ChartCustomComponent}  from './component/chartCustom/chartCustom.component';
-
+import { FileUploadModule }     from 'ng2-file-upload';
+import { BirthdayConvertPipe }  from './component/user/birthday.pipe';
+import { MyDatePickerModule }   from 'mydatepicker';
+import { TailleConvertPipe }     from './pipe/taille.pipe';
 
 
 @NgModule({
@@ -42,13 +45,17 @@ import { ChartCustomComponent}  from './component/chartCustom/chartCustom.compon
     CKEditorModule,
     routing,
     MaterialModule.forRoot(),
-    TagInputModule
+    TagInputModule,
+    FileUploadModule,
+    MyDatePickerModule
   ],
   declarations: [
     ProfilsComponent,
     UserComponent,
     ListProfilsComponent,
     ChartCustomComponent,
+    BirthdayConvertPipe,
+    TailleConvertPipe
   ],
   providers: [BaMsgCenterService],
 })

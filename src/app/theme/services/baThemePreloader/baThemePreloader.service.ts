@@ -21,9 +21,9 @@ export class BaThemePreloader {
 
   private static _executeAll(done:Function):void {
     setTimeout(() => {
-      Promise.all(BaThemePreloader._loaders).then((values) => {
+      Promise.all(BaThemePreloader._loaders)
+      .then((values) => {
         done.call(null, values);
-
       }).catch((error) => {
         console.error(error);
       });

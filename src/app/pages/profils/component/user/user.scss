@@ -123,7 +123,96 @@ md-grid-tile-footer h3 {
   display: inline-block;
 }
 
-.info  i{
-
+.info i{
   cursor: pointer;
+}
+
+.iconLikeActionNo {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.2)
+}
+
+.iconLikeActionNo:hover {
+  color: rgba(50, 226, 34, 0.5)
+}
+
+.iconLikeActionYes {
+  cursor: pointer;
+  color: rgba(50, 226, 34, 0.5)
+}
+
+.iconLikeActionYes:hover {
+  color: rgba(0, 0, 0, 0.2)
+}
+
+.msg-list {
+  a {
+    color: white;
+  }
+  img {
+    float: left;
+    width: 50px;
+  }
+}
+
+.msg-list {
+  max-height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+  & > a {
+    border-top: 1px solid $default;
+    padding: 10px 12px;
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    &:first-child {
+      border-top: none;
+    }
+    .img-area {
+      float: left;
+      width: 36px;
+      img {
+        width: 36px;
+        height: 36px;
+        &.photo-msg-item{
+          border-radius: 18px;
+        }
+      }
+      & > div {
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+        font-size: 24px;
+        text-align: center;
+        &.comments {
+          color: $warning;
+        }
+        &.orders {
+          color: $warning;
+        }
+        i {
+          width: 36px;
+          line-height: 36px;
+        }
+      }
+    }
+    .msg-area {
+      float: right;
+      width: 230px;
+      div {
+        max-height: 34px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      span {
+        font-style: italic;
+        text-align: right;
+        display: block;
+        font-size: 11px;
+      }
+    }
+    &:hover {
+      background: rgba(0, 0, 0 ,0.4);
+    }
+  }
 }

@@ -1,15 +1,59 @@
 <div class="container-fluid">
     <div class="row" *ngIf="Profil">
-        <div class="col-md-4 col-lg-3 profils"  *ngFor="let usr of Profil">
-            <div class="visitor" >
-                <div class="header">
-                    <img *ngIf="usr.photo && usr.photo[0]" src="http://localhost:8000/{{usr.photo[0].small}}" />
-                </div>
-                <div class="card-block">
-                    <h4 class="card-title">{{usr.pseudo}} - 33 ans<br/>Genas 69740</h4>
-                    <p  class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="muted">
-                        <small class="text-muted"><a routerLink="/pages/profils/{{usr.id_profils}}" >Voir Profil</a></small>
+        <div class="card">
+            <div class="card-header" style="margin-bottom: 20px;">
+                Rechercher par :
+                <select [(ngModel)]="default_yeux"  name="yeux" (change)="createSearch($event)">
+                    <option value="">
+                        Couleur des yeux
+                    </option>
+                    <option value="1">
+                        Bleu
+                    </option>
+                    <option value="2">
+                        Marron
+                    </option>
+                    <option value="3">
+                        Vert
+                    </option>
+                    <option value="4">
+                        Gris
+                    </option>
+                </select>
+                <select [(ngModel)]="default_cheveux" name="cheveux" (change)="createSearch($event)">
+                    <option value="">
+                        Couleur des cheveux
+                    </option>
+                    <option value="1">
+                        Brun
+                    </option>
+                    <option value="2">
+                        Blond
+                    </option>
+                    <option value="3">
+                        Roux
+                    </option>
+                    <option value="4">
+                        Chatain
+                    </option>
+                    <option value="5">
+                        Noir
+                    </option>
+                </select>
+            </div>
+            <div class="card-block">
+                <div class="col-xlg-3 col-lg-3 col-md-4 col-sm-12 col-xs-12 profils"  *ngFor="let usr of Profil">
+                    <div class="visitor" >
+                        <div class="header">
+                            <img *ngIf="usr.photo && usr.photo[0]" src="http://localhost:8000/{{usr.photo[0].small}}" />
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">{{usr.pseudo}} - 33 ans<br/>Genas 69740</h4>
+                            <p class="card-text">{{usr.description}}</p>
+                            <div class="muted">
+                                <small class="text-muted"><a routerLink="/pages/profils/{{usr.id_profils}}" >Voir Profil</a></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

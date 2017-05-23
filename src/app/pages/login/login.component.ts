@@ -26,24 +26,27 @@ export class Login {
     this.email = this.form.controls['email'];
     this.password = this.form.controls['password'];
     this.https = https;
+    console.log('=============')
+    $.getJSON("http://localhost:8000/geoloc", function(response) {
+      console.log(response)
+    });
   }
 
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
-      let data = {      "username":this.email.value,
-                        "password":this.password.value,
-                        "grant_type":'password',
-                        "client_id":2,
-                        "client_secret":'rpIIGlkqiihxbzguHxy13ij1jOODxObYYorMF84H'
-                      };
+      let data = {
+                  "username":this.email.value,
+                  "password":this.password.value,
+                  "grant_type":'password',
+                  "client_id":2,
+                  "client_secret":'rpIIGlkqiihxbzguHxy13ij1jOODxObYYorMF84H'
+                };
       this.https.getBearer(data).subscribe(
-                        response => {
-                           let resp = response.json();
-                          this.https.bearer = resp.access_token;
-                          this.https.headers.append('Authorization', 'Bearer ' + this.https.bearer);
-                          this.router.navigate(['/pages/profils']);
-                      });
+        response => {
+          let resp = response.json();
+          this.router.navigate(['/pages/profils']);
+      });
     }
   }
 }

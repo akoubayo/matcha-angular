@@ -1,9 +1,13 @@
 import { NgModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { HttpService }        from './theme/services/httpService/httpService.service';
+import { MyDatePickerModule } from 'mydatepicker';
+//import { nglocationService }              from './pages/geolocation/services/browser-location.service';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -16,6 +20,7 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+import {AboutUsersResolve} from './about-resolve.service'
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -46,16 +51,21 @@ export type StoreType = {
     NgaModule.forRoot(),
     PagesModule,
     routing,
+    MyDatePickerModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    CookieService,
+    HttpService,
+    AboutUsersResolve
+    //nglocationService,
   ]
 })
 
 export class AppModule {
 
-  constructor(public appRef: ApplicationRef, public appState: AppState) {
+  constructor(public appRef: ApplicationRef, public appState: AppState, public http: HttpService) {
   }
 
   hmrOnInit(store: StoreType) {

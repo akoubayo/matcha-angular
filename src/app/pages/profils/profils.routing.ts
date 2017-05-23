@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ListProfilsComponent},
       { path: ':id', component: UserComponent }
-    ]
+    ],
   }
 ];
 

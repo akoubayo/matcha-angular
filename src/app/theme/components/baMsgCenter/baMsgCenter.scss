@@ -122,10 +122,11 @@
       float: left;
       color: $dropdown-text;
     }
-    & > a {
+    & > span {
       float: right;
       margin-left: 12px;
       text-decoration: none;
+      cursor: pointer;
       &:hover {
         color: $dropdown-text;
       }

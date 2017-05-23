@@ -3,14 +3,14 @@ export const PAGES_MENU = [
     path: 'pages',
     children: [
       {
-        path: 'dashboard',
+        path: ['profils/me'],
         data: {
           menu: {
-            title: 'Dashboard',
-            icon: 'ion-android-home',
-            selected: false,
-            expanded: false,
-            order: 0
+            title:'Mon profil',
+            icon: 'ion-person',
+            selected:false,
+            expended: false,
+            order: 0,
           }
         }
       },
@@ -22,22 +22,47 @@ export const PAGES_MENU = [
             icon: 'ion-person',
             selected:false,
             expended: false,
-            order: 50,
+            order: 10,
           }
         }
       },
       {
-        path: ['profils/me'],
+        path: 'geolocation',
         data: {
           menu: {
-            title:'Mon profil',
-            icon: 'ion-person',
+            title:'geolocation',
+            icon: 'ion-ios-location-outline',
             selected:false,
             expended: false,
-            order: 60,
+            order: 15,
           }
         }
       },
+      {
+        path:'deconnexion',
+        data: {
+          menu: {
+            title:' Se déconnecter ',
+            icon: 'ion-person',
+            selected:false,
+            expended: false,
+            order: 20,
+          }
+        }
+      }
+      {
+        path: 'dashboard',
+        data: {
+          menu: {
+            title: 'Dashboardsqsqsq',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 10
+          }
+        }
+      },
+
       {
         path: 'editors',
         data: {
@@ -348,7 +373,7 @@ export const PAGES_MENU = [
             target: '_blank'
           }
         }
-      }
+       }
     ]
   }
 ];

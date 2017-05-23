@@ -4,6 +4,8 @@ import { GlobalState } from './global.state';
 import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
 import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
+import { HttpService }        from './theme/services/httpService/httpService.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import 'style-loader!./app.scss';
 import 'style-loader!./theme/initial.scss';
@@ -16,7 +18,7 @@ import 'style-loader!./theme/initial.scss';
   selector: 'app',
   template: `
     <main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>
-      <div class="additional-bg"></div>
+
       <router-outlet></router-outlet>
     </main>
   `
@@ -24,12 +26,13 @@ import 'style-loader!./theme/initial.scss';
 export class App {
 
   isMenuCollapsed: boolean = false;
-
   constructor(private _state: GlobalState,
               private _imageLoader: BaImageLoaderService,
               private _spinner: BaThemeSpinner,
               private viewContainerRef: ViewContainerRef,
-              private themeConfig: BaThemeConfig) {
+              private themeConfig: BaThemeConfig,
+              private _HttpService: HttpService,
+              private router: Router) {
 
     themeConfig.config();
 
@@ -43,7 +46,9 @@ export class App {
   public ngAfterViewInit(): void {
     // hide spinner once all loaders are completed
     BaThemePreloader.load().then((values) => {
-      this._spinner.hide();
+          this._spinner.hide();
+    }).catch(error => {
+
     });
   }
 

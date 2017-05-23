@@ -1,240 +1,239 @@
 <div class="row" style="margin-bottom: 15px;">
     <div *ngIf="profil" class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <ba-card title="{{profil.pseudo}}" baCardClass="with-scroll">
-           <div *ngIf="profil.photo[0]" class="col-xlg-3 col-lg-3 col-md-3 col-sm-5 col-xs-12">
-               <img src="http://localhost:8000/{{profil.photo[0].small}}" />
-           </div>
-           <div class="col-xlg-6 col-lg-6 col-md-6 col-sm-7 col-xs-12">
-               <div class="info">
-                   <p>
-                     <span class="etiquette">Sexe        </span>
-                     <span class="details" *ngIf="!sexe">: {{profil.sexe}}</span>
-                     <span class="details" *ngIf="sexe">
-                        <div class="form-group">
-                          <select class="form-control" [(ngModel)]="profil.pseudo" (change)="changeValue('sexe')">
-                            <option value="{{profil.sexe}}"></option>
-                            <option>Femme</option>
-                            <option>Homme</option>
-                          </select>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('sexe')"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Age         </span>
-                     <span class="details">: {{profil.birthday}} ans</span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Ville       </span>
-                     <span class="details" *ngIf="!ville">: {{profil.ville}}</span>
-                     <span class="details" *ngIf="ville">
-                        <div class="form-group">
-                          <input class="form-control" [(ngModel)]="profil.ville" (change)="changeValue('ville')"/>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('ville')"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Yeux        </span>
-                     <span class="details" *ngIf="!yeux">: {{profil.yeux}}</span>
-                     <span class="details" *ngIf="yeux">
-                        <div class="form-group">
-                          <select class="form-control" [(ngModel)]="profil.yeux" (change)="changeValue('yeux')">
-                            <option value="{{profil.yeux}}"></option>
-                            <option>Bleu</option>
-                            <option>Marron</option>
-                            <option>Vert</option>
-                            <option>Gris</option>
-                          </select>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('yeux')"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Cheveux     </span>
-                     <span class="details" *ngIf="!cheveux">: {{profil.cheveux}}</span>
-                     <span class="details" *ngIf="cheveux">
-                        <div class="form-group">
-                          <select class="form-control" [(ngModel)]="profil.cheveux" (change)="changeValue('cheveux')">
-                            <option value="{{profil.cheveux}}"></option>
-                            <option>Brun</option>
-                            <option>Chatain</option>
-                            <option>Blond</option>
-                            <option>Roux</option>
-                            <option>Noir</option>
-                          </select>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('cheveux')"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Taille      </span>
-                     <span class="details">: {{profil.taille}}</span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Poid        </span>
-                     <span class="details" *ngIf="!poid">: {{profil.poid}} kg</span>
-                     <span class="details" *ngIf="poid">
-                        <div class="form-group">
-                          <select class="form-control" [(ngModel)]="profil.poid" (change)="changeValue('poid')">
-                            <option value="{{profil.poid}}"></option>
-                            <option *ngFor="let number of range(100)" value="{{number}}">{{number}} kg</option>
-                          </select>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('poid')"></i>
-                     </span>
-                   </p>
-                   <p>
-                     <span class="etiquette">Orientation        </span>
-                     <span class="details" *ngIf="!orientation">: {{profil.orientation}}</span>
-                     <span class="details" *ngIf="orientation">
-                        <div class="form-group">
-                          <select class="form-control" [(ngModel)]="profil.orientation" (change)="changeValue('orientation')">
-                            <option value="{{profil.orientation}}"></option>
-                            <option>Hétérosexuel</option>
-                            <option>Homosexuel</option>
-                            <option>Bisexuel</option>
-                          </select>
-                        </div>
-                    </span>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('orientation')"></i>
-                     </span>
-                   </p>
-                </div>
-           </div>
-           <div class="row">
-               <div class="col-xs-12">
-                    <h4 style="margin-top: 20px;">
-                      <u>Description :</u>
-                       <span class="edit" *ngIf="id === 'me'">
-                         <i class="ion-edit" (click)="editUser('description')"></i>
-                       </span>
-                    </h4>
-                   <span class="details" *ngIf="!description" [innerHTML]="nl2br()"></span>
-                     <span class="details" *ngIf="description">
-                        <div class="form-group">
-                          <textarea class="form-control" [(ngModel)]="profil.description" (change)="changeValue('description')">
-                          {{profil.description}}
-                          </textarea>
-                        </div>
-                    </span>
-                   <h4 style="margin-top: 20px;">
-                     <u>List des tags :</u>
-                     <span class="edit" *ngIf="id === 'me'">
-                       <i class="ion-edit" (click)="editUser('tag')"></i>
-                     </span>
-                   </h4>
-                   <span *ngIf="tag">
-                      <tag-input   [ngModel]='this.profil.tags'
-                                   [identifyBy]="'id'" [displayBy]="'name'"
-                                   (onAdd)="addTags($event)"
-                                   (onRemove)="deleteTags($event)"
-                                 theme='bootstrap'
+      <div class="card">
+        <div class="card-header">
+          {{profil.pseudo}}
+          <span  *ngIf="id !== 'me'" style="display: inline-block;float: right;">
+            Like :  <i class="material-icons iconLikeAction{{like}}" (click)="setLike()">thumb_up</i>
+          </span>
+        </div>
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <div class="col-xlg-3 col-lg-3 col-md-5 col-sm-5 col-xs-12">
+                 <img *ngIf="profil.photoProfil" id="preview" src="http://localhost:8000/{{profil.photoProfil.small}}" (click)="triggerUpload()" style="cursor: pointer;"/>
+                 <img *ngIf="!profil.photoProfil" id="preview" src="{{ ( 'no-photo' | baProfilePicture ) }}" alt="Preview" (click)="triggerUpload()" style="cursor: pointer;">
+                 <input id="inputFile" style="display: none" type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="addPhotoProfil()"/>
+                 <br/>
+                 <button *ngIf="clickUploadFile && id === 'me'" type="button" class="btn btn-success btn-s"
+                        (click)="addPhotoProfil()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <button *ngIf="!clickUploadFile && id === 'me'" (click)="triggerUpload()" type="button" class="btn btn-success btn-s">
+                    <span class="glyphicon glyphicon-upload"></span> Modifier photo Profil
+                </button>
+             </div>
 
-                      >
-                        <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="['Item1', 'item2', 'item3']">
-       </tag-input-dropdown>
-                      </tag-input>
-                   </span>
-                    <span *ngFor="let tag of profil.tags">
-                        <button class="btn btn-info"  type="button">{{tag.name}}</button>
-                    </span>
-                </div>
-           </div>
-       </ba-card>
+             <div class="col-xlg-6 col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                 <div class="info">
+                     <p>
+                       <span class="etiquette">Sexe        </span>
+                       <span class="details">: {{profil.sexe}}</span>
+                     </p>
+                     <p>
+                        <span class="etiquette">Age         </span>
+                        <span class="details" *ngIf="!birthday">
+                         : {{ profil.birthday | birthdayConvert }} ans
+                        </span>
+                        <span class="details" *ngIf="birthday">
+                          <div class="form-group">
+                             <my-date-picker (dateChanged)="changeValue('birthday', $event)" name="mydate"
+                                [options]="myDatePickerOptions"
+                                [(ngModel)]="model"
+                                required>
+                              </my-date-picker>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('birthday')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Ville       </span>
+                       <span class="details" *ngIf="!ville">: {{profil.ville}}</span>
+                       <span class="details" *ngIf="ville">
+                          <div class="form-group">
+                            <input class="form-control" [(ngModel)]="profil.ville" (change)="changeValue('ville')" (keyup)="searchCity()"/>
+                            <span *ngIf="search_city" style="background-color: white;display: inline-block;width: 250px;position: absolute;height: 250px;color: black">
+                              <div *ngFor="let search of search_city">
+                                {{search.ville_cap}}
+                              </div>
+                            </span>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('ville')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Yeux        </span>
+                       <span class="details" *ngIf="!yeux">: {{profil.yeux}}</span>
+                       <span class="details" *ngIf="yeux">
+                          <div class="form-group">
+                            <select class="form-control" [(ngModel)]="profil.yeux" (change)="changeValue('yeux')">
+                              <option>Bleu</option>
+                              <option>Marron</option>
+                              <option>Vert</option>
+                              <option>Gris</option>
+                            </select>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('yeux')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Cheveux     </span>
+                       <span class="details" *ngIf="!cheveux">: {{profil.cheveux}}</span>
+                       <span class="details" *ngIf="cheveux">
+                          <div class="form-group">
+                            <select class="form-control" [(ngModel)]="profil.cheveux" (change)="changeValue('cheveux')">
+                              <option>Brun</option>
+                              <option>Chatain</option>
+                              <option>Blond</option>
+                              <option>Roux</option>
+                              <option>Noir</option>
+                            </select>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('cheveux')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Taille      </span>
+                       <span class="details" *ngIf="!taille">: {{profil.taille | tailleConvert}}</span>
+                        <span class="details" *ngIf="taille">
+                          <div class="form-group">
+                            <select class="form-control" [(ngModel)]="profil.taille" (change)="changeValue('taille')">
+                              <option *ngFor="let number of tailleInput(100)" value="1{{number}}" >
+                                1m{{number}}
+                              </option>
+                              <option *ngFor="let number of tailleInput(35)" value="2{{number}}" >
+                                2m{{number}}
+                              </option>
+                            </select>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit"  (click)="editUser('taille')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Poid        </span>
+                       <span class="details" *ngIf="!poid">: {{profil.poid}} kg</span>
+                       <span class="details" *ngIf="poid">
+                          <div class="form-group">
+                            <select class="form-control" [(ngModel)]="profil.poid" (change)="changeValue('poid')">
+                              <option value="{{profil.poid}}"></option>
+                              <option *ngFor="let number of range(100)" value="{{number}}">{{number}} kg</option>
+                            </select>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('poid')"></i>
+                       </span>
+                     </p>
+                     <p>
+                       <span class="etiquette">Orientation        </span>
+                       <span class="details" *ngIf="!orientation">: {{profil.orientation}}</span>
+                       <span class="details" *ngIf="orientation">
+                          <div class="form-group">
+                            <select class="form-control" [(ngModel)]="profil.orientation" (change)="changeValue('orientation')">
+                              <option>Hétérosexuel</option>
+                              <option>Homosexuel</option>
+                              <option>Bisexuel</option>
+                            </select>
+                          </div>
+                      </span>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('orientation')"></i>
+                       </span>
+                     </p>
+                  </div>
+             </div>
+             <div class="row">
+                 <div class="col-xs-12">
+                      <h4 style="margin-top: 20px;">
+                        <u>Description :</u>
+                         <span class="edit" *ngIf="id === 'me'">
+                           <i class="ion-edit" (click)="editUser('description')"></i>
+                         </span>
+                      </h4>
+                     <span class="details" *ngIf="!description" [innerHTML]="nl2br()"></span>
+                       <span class="details" *ngIf="description">
+                          <div class="form-group">
+                            <textarea class="form-control" [(ngModel)]="profil.description" (change)="changeValue('description')">
+                            {{profil.description}}
+                            </textarea>
+                          </div>
+                      </span>
+                     <h4 style="margin-top: 20px;">
+                       <u>List des tags :</u>
+                       <span class="edit" *ngIf="id === 'me'">
+                         <i class="ion-edit" (click)="editUser('tag')"></i>
+                       </span>
+                     </h4>
+                     <span *ngIf="tag">
+                        <tag-input   [ngModel]='this.profil.tags'
+                                     [identifyBy]="'id'" [displayBy]="'name'"
+                                     (onAdd)="addTags($event)"
+                                     (onRemove)="deleteTags($event)"
+                                     theme='bootstrap'
+                        >
+                          <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="['Item1', 'item2', 'item3']">
+                          </tag-input-dropdown>
+                        </tag-input>
+                     </span>
+                      <span *ngFor="let tag of profil.tags">
+                          <button class="btn btn-info"  type="button">{{tag.name}}</button>
+                      </span>
+                  </div>
+             </div>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          </blockquote>
+        </div>
+      </div>
     </div>
 </div>
 <div class="toto" *ngIf="profil">
     <charCustom [profil]="profil" [chartTab]="chartTab"></charCustom>
 </div>
+<div class="row">
+  <div class="col-xlg-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <div class="card" *ngIf="profil">
+      <div class="card-header" style="margin-bottom: 20px;">
+        Photos de {{profil.pseudo}}
+      </div>
+      <md-grid-list cols="6" rowHeight="200px" *ngIf="profil && profil.photo[0]">
+        <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
+            <img  src="http://localhost:8000/{{photo.small}}" />
+                  <md-grid-tile-footer>
+              <h3>nbLikes : {{photo.vote}}</h3>
+              <i class="material-icons">thumb_up</i>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
+  </div>
+  <div class="col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card" *ngIf="profil && id === 'me' && notifs" >
+      <div class="card-header" style="margin-bottom: 20px;">
+        Notifs de {{profil.pseudo}}
+      </div>
+      <div class="msg-list">
+        <a *ngFor="let msg of notifs" routerLink="/pages/profils/{{msg.profils_send}}" class="clearfix" (click)="markNotifRead(msg.id_notifs)">
+          <div class="img-area">
+             <img *ngIf="msg && msg.getPhoto && msg.getPhoto[0]" [ngClass]="{'photo-msg-item': !msg.image}"
+                                     src="http://localhost:8000/{{msg.getPhoto[0].small}}">
+         </div>
+          <div class="msg-area">
+            <div>{{ msg.notif }}</div>
+            <span>{{ msg.created_at }}</span>
+          </div>
+        </a>
 
-<md-grid-list cols="6" rowHeight="200px" *ngIf="profil && profil.photo[0]">
-  <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-        <i class="material-icons">thumb_up</i>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img   src="http://localhost:8000/{{photo.small}}" />
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h5>nbLikes : {{photo.vote}}</h5>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img   src="http://localhost:8000/{{photo.small}}" />
-      <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-   <md-grid-tile *ngFor="let photo of profil.photo" rowspan="1">
-      <img  src="http://localhost:8000/{{photo.small}}" />
-            <md-grid-tile-footer>
-        <h3>nbLikes : {{photo.vote}}</h3>
-      </md-grid-tile-footer>
-  </md-grid-tile>
-</md-grid-list>
+      </div>
+    </div>
+  </div>
+</div>
 

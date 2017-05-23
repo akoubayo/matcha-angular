@@ -6,9 +6,12 @@ import { NgaModule } from '../theme/nga.module';
 
 import { Pages } from './pages.component';
 
+import {AboutUsersResolve} from '../about-resolve.service'
+
 @NgModule({
   imports: [CommonModule, NgaModule, routing],
-  declarations: [Pages]
+  declarations: [Pages],
+  providers: [AboutUsersResolve],
 })
 export class PagesModule {
 }

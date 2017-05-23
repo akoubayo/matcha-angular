@@ -50,6 +50,7 @@ export class BaPictureUploader {
   }
 
   _changePicture(file:File):void {
+    console.log(file)
     const reader = new FileReader();
     reader.addEventListener('load', (event:Event) => {
       this.picture = (<any> event.target).result;
@@ -58,6 +59,7 @@ export class BaPictureUploader {
   }
 
   _onUpload(data):void {
+    console.log(data)
     if (data['done'] || data['abort'] || data['error']) {
       this._onUploadCompleted(data);
     } else {
@@ -66,6 +68,7 @@ export class BaPictureUploader {
   }
 
   _onUploadCompleted(data):void {
+    console.log(data);
     this.uploadInProgress = false;
     this.onUploadCompleted.emit(data);
   }
